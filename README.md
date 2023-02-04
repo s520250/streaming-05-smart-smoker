@@ -1,6 +1,22 @@
 # streaming-05-smart-smoker
-Streaming Data - Module 05 Assignment
-Creating a producer.
+Author: Sammie Bever
+Date: February 3, 2023 
+Class: Streaming Data 
+Assignment: Module 05
+
+This program uses producers and task queues (RabbitMQ). 
+It reads data from the smoker-temps.csv file for smart smokers.
+
+Creating a producer, using 3 task_queues, and 3 callbacks.
+
+# Instructions on how to run the program
+## Before you begin
+1. View / Command Palette - then Python: Select Interpreter
+2. Select your conda environment. 
+
+## Execute the Producer
+1. Open Anaconda Prompt Terminal
+2. Run bbq_producer.py (say y to monitor RabbitMQ queues)
 
 # Assignment Details
 ## Using a Barbeque Smoker
@@ -36,3 +52,18 @@ Perform calculations to determine if a significant event has occurred.
 ## Optional: Alert Notifications
 Optionally, we can have our consumers send us an email or a text when a significant event occurs. 
 You'll need some way to send outgoing emails. I use my main Gmail account - other options are possible. 
+
+# Screenshots of program running
+## Running code in Anaconda Prompt Terminal
+GitHub Link - 
+![Bever Example GitHub]()
+
+Using file name (PNG) -
+![Bever Example PNG](.PNG)
+
+## RabbitMQ Server
+GitHub Link - 
+![RabbitMQ Server GitHub]()
+
+Using file name (PNG) -
+![RabbitMQ Server PNG](.PNG)
