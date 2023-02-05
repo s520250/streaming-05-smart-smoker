@@ -53,6 +53,10 @@ Perform calculations to determine if a significant event has occurred.
 Optionally, we can have our consumers send us an email or a text when a significant event occurs. 
 You'll need some way to send outgoing emails. I use my main Gmail account - other options are possible. 
 
+# References:
+Convert string to float (with blank cells in csv) - https://codedamn.com/news/programming/fix-valueerror
+
+
 # Screenshots of program running
 ## Running code in Anaconda Prompt Terminal
 GitHub Link - 

@@ -2,14 +2,12 @@
 Author: Sammie Bever
 Date: February 3, 2023 
 Class: Streaming Data 
-Assignment: Module 05
+Assignment: Module 05 
 
 This program uses producers and task queues (RabbitMQ).
 It reads data from the smoker-temps.csv file for smart smokers.
 
 To-Do List:
-- file is sending 3 messages to all 3 queues each time... I think it needs some type of 
-    routing or if statements to tell it when to send which messages to certain queues
 - change sleep time
 
 """
