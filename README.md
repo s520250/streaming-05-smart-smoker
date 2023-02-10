@@ -68,7 +68,7 @@ Sometimes my screenshots don't come through to GitHub using the PNG file, so I a
 1 producer
 
 GitHub Link - 
-![Bever Example GitHub]()
+![Bever Example GitHub](https://github.com/s520250/streaming-05-smart-smoker/blob/main/Screenshot_BBQ_Producer_AnacondaTerminal.PNG)
 
 Using file name (PNG) -
 ![Bever Example PNG](Screenshot_BBQ_Producer_AnacondaTerminal.PNG)
@@ -77,7 +77,7 @@ Using file name (PNG) -
 3 task queues
 
 GitHub Link - 
-![RabbitMQ Server GitHub]()
+![RabbitMQ Server GitHub](https://github.com/s520250/streaming-05-smart-smoker/blob/main/Screenshot_BBQ_Producer_RabbitMQ.PNG)
 
 Using file name (PNG) -
 ![RabbitMQ Server PNG](Screenshot_BBQ_Producer_RabbitMQ.PNG)
