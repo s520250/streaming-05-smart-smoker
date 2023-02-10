@@ -136,7 +136,7 @@ def get_message_from_csv(input_file):
 
         # slowly read a row half minute (30 seconds)
         # can change this to 1 second for testing purposes - makes it go faster
-        time.sleep(1)        
+        time.sleep(30)        
 
 ########################################################
 
