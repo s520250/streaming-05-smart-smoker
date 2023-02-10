@@ -10,9 +10,13 @@ It reads data from the smoker-temps.csv file for smart smokers.
 Creating a producer, using 3 task_queues, and 3 callbacks.
 
 # Instructions on how to run the program
-## Before you begin
+## Before you begin, adjust your settings in Visual Studio and set-up your conda environment
 1. View / Command Palette - then Python: Select Interpreter
 2. Select your conda environment. 
+
+## Adjust your code as needed
+1. Update your variables and options under the "define variables/constants/options" section of the bbq_producer.py file
+2. Update your sleep time, if desired
 
 ## Execute the Producer
 1. Open Anaconda Prompt Terminal
@@ -58,16 +62,22 @@ Convert string to float (with blank cells in csv) - https://codedamn.com/news/pr
 
 
 # Screenshots of program running
+Sometimes my screenshots don't come through to GitHub using the PNG file, so I also use a GitHub link to the photos in my repo
+
 ## Running code in Anaconda Prompt Terminal
+1 producer
+
 GitHub Link - 
 ![Bever Example GitHub]()
 
 Using file name (PNG) -
-![Bever Example PNG](.PNG)
+![Bever Example PNG](Screenshot_BBQ_Producer_AnacondaTerminal.PNG)
 
 ## RabbitMQ Server
+3 task queues
+
 GitHub Link - 
 ![RabbitMQ Server GitHub]()
 
 Using file name (PNG) -
-![RabbitMQ Server PNG](.PNG)
+![RabbitMQ Server PNG](Screenshot_BBQ_Producer_RabbitMQ.PNG)

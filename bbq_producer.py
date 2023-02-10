@@ -4,11 +4,8 @@ Date: February 3, 2023
 Class: Streaming Data 
 Assignment: Module 05 
 
-This program uses producers and task queues (RabbitMQ).
+This program creates a producer and multiple task queues (RabbitMQ).
 It reads data from the smoker-temps.csv file for smart smokers.
-
-To-Do List:
-- change sleep time
 
 """
 ########################################################
@@ -18,22 +15,17 @@ import pika
 import sys
 import webbrowser
 import csv
-# import socket
 import time
 
 ########################################################
 
 # define variables/constants/options
 host = "localhost"
-# port = 9999
-# address_tuple = (host, port)
 csv_file = "smoker-temps.csv"
 smoker_queue = "01-smoker"
 foodA_queue = "02-food-A"
 foodB_queue = "03-food-B"
 show_offer = True # (RabbitMQ Server option - T=on, F=off)
-# socket_family = socket.AF_INET 
-# socket_type = socket.SOCK_DGRAM
 
 ########################################################
 
@@ -58,9 +50,7 @@ def delete_queue(host: str, queue_name: str):
     ch = conn.channel()
     ch.queue_delete(queue=queue_name)
 
-## define main work of program
-
-### define a message to send to queue
+## define a message to send to queue
 def publish_message_to_queue(host: str, queue_name: str, message: str):
     """
     Creates and sends a message to the queue each execution.
@@ -92,11 +82,11 @@ def publish_message_to_queue(host: str, queue_name: str, message: str):
         # close the connection to the server
         conn.close()
 
+# define getting/reading a message from the csv file & publishing to the queue
 def get_message_from_csv(input_file):
     """
     Read from csv input file. Send each row as a message to the queue.
     """ 
-    # sock = socket.socket(socket_family, socket_type) 
 
     # read from a csv file
     input_file = open(csv_file, "r")
@@ -105,64 +95,47 @@ def get_message_from_csv(input_file):
     # Skip reading the header row of csv
     next(reader)
 
-    # Write the header row to the output file
-    # header_list = ['Time (UTC)', 'Channel1', 'Channel2', 'Channel3']
-
     for row in reader:
+        # define the input strings that we want to convert into float data types
         input_string_row1 = row[1]
         input_string_row2 = row[2]
         input_string_row3 = row[3]
 
+        # remove blank/empty strings and replace them with zeroes 
         to_convert_column1 = input_string_row1.replace('', '0')
         to_convert_column2 = input_string_row2.replace('', '0')
         to_convert_column3 = input_string_row3.replace('', '0')
 
+        # Convert strings (now with 0s instead of empty strings) to float types
         float_row1 = float(to_convert_column1)
         float_row2 = float(to_convert_column2)
         float_row3 = float(to_convert_column3)
 
-        # get the "timestamp" column 
+        # turn column values into fstrings
         fstring_time = f"{row[0]}"
         fstring_channel1 = f"{row[1]}"
         fstring_channel2 = f"{row[2]}"
         fstring_channel3 = f"{row[3]}"
-
-        # convert columns to float types
-        # Channel1 = float(row[1])
-        # Channel2 = float(row[2])
-        # Channel3 = float(row[3])
 
         # use an fstring to create messages from our data
         fstring_message_smoker = f"[{fstring_time}, {fstring_channel1}]"
         fstring_message_foodA = f"[{fstring_time}, {fstring_channel2}]"
         fstring_message_foodB = f"[{fstring_time}, {fstring_channel3}]"
 
-        # used this code in mod4, but not mod2... not sure if needed
-        # input_file.read
-
         # prepare a binary (1s and 0s) message to stream
-        # 'message' is case sensitive!
+        # be careful: these are case sensitive!
         message_smoker = fstring_message_smoker.encode()
         message_foodA = fstring_message_foodA.encode()
         message_foodB = fstring_message_foodB.encode()
 
-        # use the socket sendto() method to send the message
-        # sock.sendto(message_smoker, address_tuple)
-        # sock.sendto(message_foodA, address_tuple)
-        # sock.sendto(message_foodB, address_tuple)
-
-        # publish message to queue
-        # publish_message_to_queue(host, smoker_queue, message_smoker)
-        # publish_message_to_queue(host, foodA_queue, message_foodA)
-        # publish_message_to_queue(host, foodB_queue, message_foodB)
-
-        # publish using routing
+        # publish to queues using routing
         if float_row1 > 0: publish_message_to_queue(host, smoker_queue, message_smoker)
         if float_row2 > 0: publish_message_to_queue(host, foodA_queue, message_foodA)
         if float_row3 > 0: publish_message_to_queue(host, foodB_queue, message_foodB)
         else: print()
 
-        # slowly read a row every 1 seconds from file
+        # slowly read a row half minute (30 seconds)
+        # can change this to 1 second for testing purposes - makes it go faster
         time.sleep(1)        
 
 ########################################################
