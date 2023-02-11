@@ -58,8 +58,9 @@ Optionally, we can have our consumers send us an email or a text when a signific
 You'll need some way to send outgoing emails. I use my main Gmail account - other options are possible. 
 
 # References:
-Convert string to float (with blank cells in csv) - https://codedamn.com/news/programming/fix-valueerror
-
+- Convert string to float (with blank cells in csv) - https://codedamn.com/news/programming/fix-valueerror
+- auto-ack: https://www.rabbitmq.com/confirms.html
+- SyntaxError: positional argument follows keyword argument - https://www.geeksforgeeks.org/how-to-fix-syntaxerror-positional-argument-follows-keyword-argument-in-python/
 
 # Screenshots of program running
 Sometimes my screenshots don't come through to GitHub using the PNG file, so I also use a GitHub link to the photos in my repo
